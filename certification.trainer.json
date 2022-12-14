@@ -1,0 +1,33 @@
+{
+    "questions": [
+        {
+            "question": "What was arguably the first metal band in existence?",
+            "answers": [
+                "N. Judas Priest",
+                "Y. Black Sabbath",
+                "N. Motorhead",
+                "N. Deep Purple"
+            ]
+        },
+        {
+            "question": "Which instrument has been the key to the heavy metal sound?",
+            "answers": [
+                "N. Keyboards",
+                "N. Bass guitar",
+                "N. Drums",
+                "Y. Electric guitar"
+            ]
+        },
+        {
+            "question": "Please select the Big Four band of thrash metal",
+            "answers": [
+                "Y. Metallica",
+                "Y. Slayer",
+                "Y. Anthrax",
+                "Y. Megadeth",
+                "N. Iron Maiden",
+                "N. Korn"
+            ]
+        }
+    ]
+}

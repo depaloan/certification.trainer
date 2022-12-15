@@ -61,11 +61,11 @@ with open("certification.trainer.json", "r") as read_content:
         console.print("")
         for answer in answers_list:
             if ((answer_id in inserted_answers) and (answer_id not in correct_answer)):
-                console.print("[red]" + str(answer_id) +". " + answer[3:] + "[/red]")
+                console.print("[red]" + str(answer_id) +". :x: " + answer[3:] + "[/red]")
             elif ((answer_id in inserted_answers) and (answer_id in correct_answer)):
-                console.print("[bold green]" + str(answer_id) +". :star: " + answer[3:] + "[/bold green]")
+                console.print("[bold green]" + str(answer_id) +". :white_check_mark: " + answer[3:] + "[/bold green]")
             elif ((answer_id not in inserted_answers) and (answer_id in correct_answer)):
-                console.print("[bold]" + str(answer_id) +". :star: " + answer[3:] + "[/bold]")
+                console.print("[bold]" + str(answer_id) +". :white_check_mark: " + answer[3:] + "[/bold]")
             else:
                 print(str(answer_id) +". " + answer[3:])
             answer_id=answer_id+1

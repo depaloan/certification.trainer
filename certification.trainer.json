@@ -1,4 +1,7 @@
 {
+    "certification_name": "Heavy Metal quiz",
+    "certification_code": "666-666-22",
+    "certification_description": "Example file",
     "questions": [
         {
             "question": "What was arguably the first metal band in existence?",

@@ -17,6 +17,12 @@ with open("certification.trainer.json", "r") as read_content:
 
     number_available_questions=len(json_questions['questions'])
 
+    os.system('clear')
+    console.print("[green bold]" +  json_questions['certification_name'] + "[/green bold] ([blue bold]" +  json_questions['certification_code'] + "[/blue bold])\n")
+    console.print("[italic]" +  json_questions['certification_description'] + "[/italic]\n")
+    console.print("Number of questions: [bold]" + str(number_available_questions) + "[/bold]")
+    Confirm.ask("\nAre you ready to start?")
+
     i=0
 
     number_correct_answers=0

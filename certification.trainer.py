@@ -39,7 +39,9 @@ with open("certification.trainer.json", "r") as read_content:
                 correct_answer.append(answer_id)
             answer_id=answer_id+1
 
-        inserted_answers_str = input("\nInsert the right answer(s): ")
+        number_of_answers=len(correct_answer)
+
+        inserted_answers_str = input("\nInsert the right answer(s) ["+ str(number_of_answers) +"]: ")
         inserted_answers_str=inserted_answers_str.replace(',', ' ')
         inserted_answers = list(map(int, inserted_answers_str.split(" ")))
 

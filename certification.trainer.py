@@ -30,6 +30,13 @@ if (not file_path.is_file()):
     print("Usage: certification.trainer.py MY_CERT.json") 
     sys.exit(1)
 
+def print_statics():
+    os.system('clear')
+    print("number of total questions: \t" + str(number_available_questions))
+    print("number of answered questions: \t" + str(number_of_answered_questions))
+    print("number of correct answers: \t" + str(number_correct_answers))
+    print("% of correct answers: \t\t" + str(round(((number_correct_answers/number_of_answered_questions)*100),2) ))
+
 with open(file_path, "r") as read_content:
     json_questions = json.load(read_content)
 
@@ -38,7 +45,7 @@ with open(file_path, "r") as read_content:
     os.system('clear')
     console.print("[green bold]" +  json_questions['certification_name'] + "[/green bold] ([blue bold]" +  json_questions['certification_code'] + "[/blue bold])\n")
     console.print("[italic]" +  json_questions['certification_description'] + "[/italic]\n")
-    console.print("Number of questions: [bold]" + str(number_available_questions) + "[/bold]")
+    console.print("Number of available questions: [bold]" + str(number_available_questions) + "[/bold]")
     ready_to_go = Confirm.ask("\nAre you ready to start?")
 
     if (not ready_to_go):
@@ -47,6 +54,7 @@ with open(file_path, "r") as read_content:
     i=0
 
     number_correct_answers=0
+    number_of_answered_questions=0
 
     random_available_questions = list(range(number_available_questions))
     random.shuffle(random_available_questions)
@@ -98,13 +106,10 @@ with open(file_path, "r") as read_content:
             answer_id=answer_id+1
 
         i=i+1
+        number_of_answered_questions=number_of_answered_questions+1
 
-        Confirm.ask("\nGo to next question")
-        # TODO: gestire l'opzione N
+        proceed_next_question = Confirm.ask("\nGo to next question?")
+        if (not proceed_next_question):
+            print_statics()
+            sys.exit(0)
         print("\n\n\n")
-
-os.system('clear')
-print("number of total questions: " + str(number_available_questions))
-print("number of correct answers: " + str(number_correct_answers))
-print("% of correct answers: " + str(round(((number_correct_answers/number_available_questions)*100),2) ))
-

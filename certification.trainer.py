@@ -1,10 +1,14 @@
 #!/bin/python3
 
-# TODO: input JSON file should be passed as argument
+# statistiche certificazione
+# domande più sbagfliate
+# telegram BOT
 
 import json
 import os
 import random
+import sys
+from pathlib import Path
 
 from rich import print
 from rich.console import Console
@@ -12,7 +16,19 @@ from rich.prompt import Confirm
 
 console = Console()
 
-with open("certification.trainer.json", "r") as read_content:
+if (len(sys.argv) != 2):
+    print("Please provide JSON file")
+    print("Usage: certification.trainer.py MY_CERT.json") 
+    sys.exit(1)
+
+
+file_path = Path(sys.argv[1])
+if (not file_path.is_file()):
+    print("File does not exists or user is not allowed to access it")
+    print("Usage: certification.trainer.py MY_CERT.json") 
+    sys.exit(1)
+
+with open(file_path, "r") as read_content:
     json_questions = json.load(read_content)
 
     number_available_questions=len(json_questions['questions'])
@@ -21,7 +37,10 @@ with open("certification.trainer.json", "r") as read_content:
     console.print("[green bold]" +  json_questions['certification_name'] + "[/green bold] ([blue bold]" +  json_questions['certification_code'] + "[/blue bold])\n")
     console.print("[italic]" +  json_questions['certification_description'] + "[/italic]\n")
     console.print("Number of questions: [bold]" + str(number_available_questions) + "[/bold]")
-    Confirm.ask("\nAre you ready to start?")
+    ready_to_go = Confirm.ask("\nAre you ready to start?")
+
+    if (not ready_to_go):
+        sys.exit(0)
 
     i=0
 

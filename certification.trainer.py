@@ -1,7 +1,9 @@
 #!/bin/python3
 
-# statistiche certificazione
-# domande più sbagfliate
+# TODO
+# sqlite backend
+#   time spent exercising each certification
+#   hardest questions
 # telegram BOT
 
 import json

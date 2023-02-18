@@ -1,11 +1,5 @@
 #!/bin/python3
 
-# TODO
-# sqlite backend
-#   time spent exercising each certification
-#   hardest questions
-# telegram BOT
-
 import json
 import os
 import random

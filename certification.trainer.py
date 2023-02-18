@@ -113,3 +113,5 @@ with open(file_path, "r") as read_content:
             print_statics()
             sys.exit(0)
         print("\n\n\n")
+
+print_statics()

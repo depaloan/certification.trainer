@@ -47,6 +47,7 @@ with open(file_path, "r") as read_content:
 
     i=0
 
+    explaination=""
     number_correct_answers=0
     number_of_answered_questions=0
 
@@ -98,6 +99,16 @@ with open(file_path, "r") as read_content:
             else:
                 print(str(answer_id) +". " + answer[3:])
             answer_id=answer_id+1
+
+        # look for an "explaination" item
+        try:
+            explaination=json_questions['questions'][i]['explaination']
+        except:
+            # if not present, don't do anything
+            pass
+        else:
+            # if present, print it 
+            console.print("\n[italic]" + json_questions['questions'][i]['explaination'] + "[italic]")
 
         i=i+1
         number_of_answered_questions=number_of_answered_questions+1
